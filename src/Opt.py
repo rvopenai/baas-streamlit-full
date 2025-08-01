@@ -1,5 +1,6 @@
 
 from pyomo.environ import *
+from pyomo.opt import SolverFactory
 
 class EnergyOptimizer:
     def __init__(self, scenario):
@@ -51,6 +52,6 @@ class EnergyOptimizer:
             return m.discharge[t] <= m.battery_power
         m.discharge_limit = Constraint(m.T, rule=discharge_limit)
 
-    def solve(self, solver="glpk"):
-        solver = SolverFactory(solver)
+    def solve(self, solver_name="appsi_highs"):
+        solver = SolverFactory(solver_name)
         return solver.solve(self.model)
