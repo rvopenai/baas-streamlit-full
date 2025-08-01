@@ -4,13 +4,13 @@ import numpy_financial as npf
 import os
 
 def create_scenario_data(folder):
-    load = pd.read_csv(os.path.join(folder, "load.csv"))["Load (kWh)"].tolist()
+    demand = pd.read_csv(os.path.join(folder, "load.csv"))["Load (kWh)"].tolist()
     pv = pd.read_csv(os.path.join(folder, "pv.csv"))["PV (kWh)"].tolist()
     ev = pd.read_csv(os.path.join(folder, "ev.csv"))["EV (kWh)"].tolist()
     price = pd.read_csv(os.path.join(folder, "price.csv"))["Grid Price (€/kWh)"].tolist()
 
     return {
-        "load": load,
+        "demand": demand,
         "pv": pv,
         "ev": ev,
         "price": price,
