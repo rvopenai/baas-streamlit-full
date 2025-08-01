@@ -3,5 +3,5 @@ pandas
 numpy
 openpyxl
 matplotlib
-pyomo
+pyomo[appsi]
 numpy-financial
